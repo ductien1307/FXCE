@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Dev">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="dev"/>
+    <parameter name="headless" value="0"/>
+
+    <listeners>
+        <listener class-name="core.libs.ListenerTest"></listener>
+    </listeners>
+
+    <test name="Dev">
+        <classes>
+
+            <class name="yopMail.testCases.YopMail">
+                <methods>
+                    <include name="checkEmail"/>
+                </methods>
+            </class>
+
+            <!--<class name="testCases.gMail.Gmail">
+                <methods>
+                    <include name="checkInbox"/>
+                </methods>
+            </class>-->
+
+        </classes>
+    </test>
+
+
+</suite>
+
+
+
+

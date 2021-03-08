@@ -11,13 +11,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -25,31 +24,35 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class AbstractTest extends AbstractPage {
-    public static RemoteWebDriver driver;
-    public static final Logger log = LogManager.getLogger();
+    public RemoteWebDriver driver;
+    //public Logger log = LogManager.getLogger();
+    public static Logger log;
     public static File folder;
     public String osName = System.getProperty("os.name").toLowerCase();
+    public DesiredCapabilities cap = null;
 
-    @Parameters({"browser", "environment", "headless"})
-    @BeforeSuite
-    public void beforeSuite(@Optional String browser, @Optional String environment, @Optional Integer headless) {
+    @Parameters({"browser", "environment", "headless", "grid"})
+    @BeforeTest
+    public void beforeTest(@Optional String browser, @Optional String environment, @Optional Integer headless, @Optional Integer grid) throws MalformedURLException {
+        log = LogManager.getLogger();
         setPathYourOS();
         setDomain(environment);
-        openMultiBrowser(browser, headless);
+        openMultiBrowser(browser, headless, grid);
     }
 
-    @AfterSuite
-    protected void afterSuite() throws IOException, InterruptedException {
+    @AfterTest
+    protected void afterTest() throws IOException, InterruptedException {
         closeBrowser();
     }
 
-    protected void openMultiBrowser(String browser, Integer headless) {
+    protected void openMultiBrowser(String browser, Integer headless, Integer grid) throws MalformedURLException {
         folder = new File(UUID.randomUUID().toString());
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -65,11 +68,20 @@ public class AbstractTest extends AbstractPage {
             if (headless == 1) {
                 optionsChrome.setHeadless(true);
             }
-            driver = new ChromeDriver(optionsChrome);
-        } else if (isWindows() && browser.equals("firefox")) {
-            driver = new FirefoxDriver();
-        } else if (isMac() && browser.equals("firefox")) {
-            driver = new FirefoxDriver();
+            if (grid == 1) {
+                cap = DesiredCapabilities.chrome();
+                driver = new RemoteWebDriver(new URL(Domain.HUB), cap);
+            } else {
+                driver = new ChromeDriver(optionsChrome);
+            }
+        } else if (browser.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            if (grid == 1) {
+                cap = DesiredCapabilities.firefox();
+                driver = new RemoteWebDriver(new URL(Domain.HUB), cap);
+            } else {
+                driver = new FirefoxDriver();
+            }
         } else if (isUnix()) {
             System.out.println("This is Unix or Linux");
         } else if (isSolaris()) {
@@ -113,18 +125,18 @@ public class AbstractTest extends AbstractPage {
     }
 
     protected void setDomain(String environment) {
-        if (environment.equals(Domain.STAGING)) {
-            Domain.ENVIRONMENT = Domain.STAGING;
-            Domain.HOME = Domain.HOME_STAGING;
-            Domain.SECURE = Domain.SECURE_STAGING;
-        } else if (environment.equals(Domain.RELEASE)) {
-            Domain.ENVIRONMENT = Domain.RELEASE;
-            Domain.HOME = Domain.HOME_RELEASE;
-            Domain.SECURE = Domain.SECURE_RELEASE;
-        } else if (environment.equals(Domain.PRODUCTION)) {
-            Domain.ENVIRONMENT = Domain.PRODUCTION;
-            Domain.HOME = Domain.HOME_PRODUCTION;
-            Domain.SECURE = Domain.SECURE_PRODUCTION;
+        if (environment.equals(Domain.STG)) {
+            Domain.ENVIRONMENT = Domain.STG;
+            Domain.HOME = Domain.HOME_STG;
+
+        } else if (environment.equals(Domain.DEV)) {
+            Domain.ENVIRONMENT = Domain.DEV;
+            Domain.HOME = Domain.HOME_DEV;
+
+        } else if (environment.equals(Domain.PROD)) {
+            Domain.ENVIRONMENT = Domain.PROD;
+            Domain.HOME = Domain.HOME_PROD;
+
         }
     }
 
@@ -217,7 +229,7 @@ public class AbstractTest extends AbstractPage {
             salt.append(SALTCHARS.charAt(index));
         }
         String saltStr = salt.toString();
-        return "automationjs." + saltStr + "@yopmail.com";
+        return saltStr + "@yopmail.com";
     }
 
     protected String getTextRandom() {

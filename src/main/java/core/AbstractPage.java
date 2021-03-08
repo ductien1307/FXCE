@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractPage {
-    public static final Logger log = LogManager.getLogger();
+    public Logger log = LogManager.getLogger();
 
     public void printInfo(Object param) {
         StackTraceElement[] stackTrace = new Throwable().getStackTrace();

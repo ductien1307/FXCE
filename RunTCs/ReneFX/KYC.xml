@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Test Suites" parallel="tests">
+    <parameter name="environment" value="dev"/>
+    <parameter name="headless" value="0"/>
+    <parameter name="grid" value="0"/>
+
+    <test name="Chrome Test">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="username" value="auto.dev.6w20yiphsl@yopmail.com"/>
+        <parameter name="password" value="Auto@123"/>
+        <classes>
+            <class name="reneFX.testCases.Login">
+                <methods>
+                    <include name="existAccount"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

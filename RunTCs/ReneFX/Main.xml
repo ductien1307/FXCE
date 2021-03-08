@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Test Suites" parallel="tests">
+    <parameter name="environment" value="dev"/>
+    <parameter name="headless" value="0"/>
+    <parameter name="grid" value="0"/>
+
+    <!--<listeners>
+        <listener class-name="core.libs.ListenerTest"></listener>
+    </listeners>-->
+
+    <test name="Chrome Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="reneFX.testCases.Register">
+                <methods>
+                    <include name="validInfo"/>
+                </methods>
+            </class>
+            <class name="reneFX.testCases.Login">
+                <methods>
+                    <include name="validAccount"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+   <!-- <test name="Firefox Test">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            &lt;!&ndash;<class name="reneFX.testCases.Register">
+                <methods>
+                    <include name="validInfo"/>
+                </methods>
+            </class>&ndash;&gt;
+            <class name="reneFX.testCases.Login">
+                <methods>
+                    <include name="validAccount"/>
+                </methods>
+            </class>
+        </classes>
+    </test>-->
+
+</suite>
