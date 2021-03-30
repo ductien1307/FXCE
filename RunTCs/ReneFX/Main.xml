@@ -25,7 +25,7 @@
         </classes>
     </test>
 
-
+<!--
     <test name="Firefox Test">
         <parameter name="browser" value="firefox"/>
         <classes>
@@ -40,6 +40,6 @@
                 </methods>
             </class>
         </classes>
-    </test>
+    </test>-->
 
 </suite>
