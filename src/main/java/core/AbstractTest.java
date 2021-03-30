@@ -87,7 +87,7 @@ public class AbstractTest extends AbstractPage {
         } else if (isSolaris()) {
             System.out.println("This is Solaris");
         } else {
-            System.out.println("Your OS is not support!!");
+            System.out.println("Your OS is " + osName + ", sorry this framework not support!!");
         }
     }
 
