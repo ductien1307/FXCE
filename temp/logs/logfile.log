@@ -1,0 +1,4 @@
+INFO  | 2021-03-30 17:58:02 | [TestNG] core.AbstractPage (AbstractPage.java:24) - gotoRegisterPage : http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/register
+INFO  | 2021-03-30 17:58:02 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputUsername : auto.dev.7tifprj3vt@yopmail.com
+INFO  | 2021-03-30 17:58:05 | [TestNG] core.AbstractPage (AbstractPage.java:24) - gotoRegisterPage : http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/register
+INFO  | 2021-03-30 17:58:05 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputUsername : auto.dev.vlbx7u093i@yopmail.com
