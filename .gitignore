@@ -1,4 +1,4 @@
 /target/
 /.idea/
-/temp/logs/
-/temp/screenshot/
+/temp/logs/logfile.log
+/temp/screenshot
