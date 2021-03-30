@@ -20,4 +20,4 @@ build:
 test:
   stage: test
   script:
-    - mvn test -s RunTCs\ReneFX\Main.xml
+    - mvn test -s RunTCs/ReneFX/Main.xml
