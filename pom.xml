@@ -98,7 +98,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>
-                            RunTCs\JS\Suite\ApplyJobByFile.xml
+                            RunTCs\ReneFX\Main.xml
                         </suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
