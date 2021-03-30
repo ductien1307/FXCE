@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Main Test Suites" parallel="tests">
     <parameter name="environment" value="dev"/>
-    <parameter name="headless" value="0"/>
-    <parameter name="grid" value="0"/>
+    <parameter name="headless" value="1"/>
+    <parameter name="grid" value="1"/>
 
     <!--<listeners>
         <listener class-name="core.libs.ListenerTest"></listener>
@@ -25,20 +25,20 @@
         </classes>
     </test>
 
-   <!-- <test name="Firefox Test">
+    <test name="Firefox Test">
         <parameter name="browser" value="firefox"/>
         <classes>
-            &lt;!&ndash;<class name="reneFX.testCases.Register">
+            <class name="reneFX.testCases.Register">
                 <methods>
                     <include name="validInfo"/>
                 </methods>
-            </class>&ndash;&gt;
+            </class>
             <class name="reneFX.testCases.Login">
                 <methods>
                     <include name="validAccount"/>
                 </methods>
             </class>
         </classes>
-    </test>-->
+    </test>
 
 </suite>

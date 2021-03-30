@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class AbstractTest extends AbstractPage {
-    public RemoteWebDriver driver;
+    public static RemoteWebDriver driver;
     //public Logger log = LogManager.getLogger();
     public static Logger log;
     public static File folder;
