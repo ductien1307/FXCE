@@ -5,11 +5,18 @@
     <parameter name="headless" value="0"/>
     <parameter name="grid" value="0"/>
 
-    <!--<listeners>
-        <listener class-name="core.libs.ListenerTest"></listener>
-    </listeners>-->
-
     <test name="Chrome Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="reneFX.testCases.Login">
+                <methods>
+                    <include name="existAccount"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!--<test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="reneFX.testCases.Register">
@@ -23,7 +30,7 @@
                 </methods>
             </class>
         </classes>
-    </test>
+    </test>-->
 
 <!--
     <test name="Firefox Test">
