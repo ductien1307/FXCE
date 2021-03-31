@@ -2,6 +2,7 @@ java:
   stage: test
   script:
     - mvn verify
+    - mvn test -s RunTCs/ReneFX/Main.xml
   artifacts:
     when: always
     reports:
