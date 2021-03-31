@@ -2,7 +2,6 @@ package core;
 
 import core.config.Domain;
 import core.config.Path;
-import core.config.Tiennguyen;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
