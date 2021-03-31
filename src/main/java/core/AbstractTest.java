@@ -110,20 +110,23 @@ public class AbstractTest extends AbstractPage {
     protected void closeBrowser() throws InterruptedException, IOException {
         String cmd = "";
         driver.quit();
-        if (driver.toString().toLowerCase().contains("chrome")) {
-            if (osName.toLowerCase().contains("mac")) {
-                cmd = "pkill chromedriver";
-            } else {
-                cmd = "taskkill /IM chromedriver.exe /F";
+        if (isMac()) {
+            cmd = "pkill chromedriver";
+        } else if (isWindows()) {
+            cmd = "taskkill /IM chromedriver.exe /F";
+        }
+        if (cmd != "") {
+            if (driver.toString().toLowerCase().contains("chrome")) {
+                killProcess(cmd);
+            } else if (driver.toString().toLowerCase().contains("internetexplorer")) {
+                killProcess(cmd);
             }
-            Process process = Runtime.getRuntime().exec(cmd);
-            process.waitFor();
         }
-        if (driver.toString().toLowerCase().contains("internetexplorer")) {
-            cmd = "taskkill /IM IEDriverServer.exe /F";
-            Process process = Runtime.getRuntime().exec(cmd);
-            process.waitFor();
-        }
+    }
+
+    public void killProcess(String cmd) throws InterruptedException, IOException {
+        Process process = Runtime.getRuntime().exec(cmd);
+        process.waitFor();
     }
 
     protected void setDomain(String environment) {
