@@ -107,8 +107,6 @@ public class AbstractTest extends AbstractPage {
             Paths.PATH_DOWNLOAD = Paths.PATH_SYSTEM + Paths.PATH_DOWNLOAD_MAC;
         }
         System.out.println("Your OS is: " + osName);
-        System.out.println("Your browser is: " + driver.getCapabilities().getBrowserName());
-        System.out.println("Your browser version is: " + driver.getCapabilities().getVersion());
     }
 
     protected void closeBrowser() throws InterruptedException, IOException {
