@@ -9,7 +9,7 @@
     <parameter name="password" value="Auto@123"/>
 
     <test name="Chrome Test">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="opera"/>
         <classes>
             <class name="reneFX.testCases.Login">
                 <methods>
