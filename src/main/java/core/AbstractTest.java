@@ -85,7 +85,7 @@ public class AbstractTest extends AbstractPage {
             } else {
                 driver = new FirefoxDriver();
             }
-        }else if (browser.equals("opera")) {
+        } else if (browser.equals("opera")) {
             WebDriverManager.operadriver().setup();
             if (grid == 1) {
                 cap = DesiredCapabilities.opera();
@@ -93,12 +93,6 @@ public class AbstractTest extends AbstractPage {
             } else {
                 driver = new OperaDriver();
             }
-        } else if (isUnix()) {
-            System.out.println("This is Unix or Linux");
-        } else if (isSolaris()) {
-            System.out.println("This is Solaris");
-        } else {
-            System.out.println("Your OS is " + osName + ", sorry this framework not support!!");
         }
     }
 
@@ -111,9 +105,10 @@ public class AbstractTest extends AbstractPage {
             Paths.PATH_MEDIA = Paths.PATH_SYSTEM + Paths.PATH_MEDIA_MAC;
             Paths.PATH_SCREENSHOT = Paths.PATH_SYSTEM + Paths.PATH_SCREENSHOT_MAC;
             Paths.PATH_DOWNLOAD = Paths.PATH_SYSTEM + Paths.PATH_DOWNLOAD_MAC;
-        } else {
-            System.out.println("Your OS is " + osName + ", sorry this framework not support!!");
         }
+        System.out.println("Your OS is: " + osName);
+        System.out.println("Your browser is: " + driver.getCapabilities().getBrowserName());
+        System.out.println("Your browser version is: " + driver.getCapabilities().getVersion());
     }
 
     protected void closeBrowser() throws InterruptedException, IOException {
@@ -152,9 +147,9 @@ public class AbstractTest extends AbstractPage {
             Domains.HOME = Domains.HOME_PROD;
 
         }
-        if(isMac()){
+        if (isMac()) {
             Domains.HUB = Domains.HUB_LOCAL;
-        }else{
+        } else {
             Domains.HUB = Domains.HUB_SERVER;
         }
     }
