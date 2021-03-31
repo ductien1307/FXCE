@@ -3,7 +3,7 @@
 <suite name="Main Test Suites" parallel="tests">
     <parameter name="environment" value="dev"/>
     <parameter name="headless" value="0"/>
-    <parameter name="grid" value="1"/>
+    <parameter name="grid" value="0"/>
 
     <!--<listeners>
         <listener class-name="core.libs.ListenerTest"></listener>

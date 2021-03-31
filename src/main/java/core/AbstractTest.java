@@ -2,6 +2,7 @@ package core;
 
 import core.config.Domain;
 import core.config.Path;
+import core.config.Tiennguyen;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -15,8 +16,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -101,7 +104,7 @@ public class AbstractTest extends AbstractPage {
             Path.PATH_SCREENSHOT = Path.PATH_SYSTEM + Path.PATH_SCREENSHOT_MAC;
             Path.PATH_DOWNLOAD = Path.PATH_SYSTEM + Path.PATH_DOWNLOAD_MAC;
         } else {
-            System.out.println("Your OS is not support!!");
+            System.out.println("Your OS is " + osName + ", sorry this framework not support!!");
         }
     }
 
