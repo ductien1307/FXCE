@@ -17,12 +17,10 @@ build:
   script:
     - mvn compile
 
-
 test:
   stage: test
   script:
     - mvn test -s RunTCs/ReneFX/Main.xml
-
   artifacts:
     when: always
     reports:

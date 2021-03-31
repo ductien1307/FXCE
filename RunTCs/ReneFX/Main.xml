@@ -5,6 +5,9 @@
     <parameter name="headless" value="1"/>
     <parameter name="grid" value="1"/>
 
+    <parameter name="username" value="tienphp+dev@gmail.com"/>
+    <parameter name="password" value="Auto@123"/>
+
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
