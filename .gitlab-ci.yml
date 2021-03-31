@@ -1,11 +1,15 @@
-java:
-  stage: test
+stages:
+  - build
+  - test
+
+
+build:
+  stage: build
   script:
     - mvn compile
+
+
+test:
+  stage: test
+  script:
     - mvn test -s RunTCs/ReneFX/Main.xml
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
