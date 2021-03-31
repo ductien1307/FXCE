@@ -39,8 +39,8 @@ public class Login extends AbstractTest {
         sleep(10);
         loginPO.clickLogin();
         sleep(10);
-        //verifyEquals(dashBoardPO.getUserName(), username);
         log.info(getCurrentUrl(driver));
+        verifyEquals(dashBoardPO.getUserName(), username);
     }
 
     @DataProvider(name = "data")

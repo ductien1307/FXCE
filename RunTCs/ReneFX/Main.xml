@@ -8,8 +8,11 @@
 
     <parameter name="username" value="tienphp+dev@gmail.com"/>
     <parameter name="password" value="Auto@123"/>
+    <listeners>
+        <listener class-name="core.libs.ListenerTest"></listener>
+    </listeners>
 
-    <test name="Chrome Test">
+    <test name="Dev">
         <classes>
             <class name="reneFX.testCases.Login">
                 <methods>
