@@ -35,7 +35,7 @@ public class Login extends AbstractTest {
         loginPO.inputUserName(username);
         loginPO.inputPassWord(password);
         loginPO.clickLogin();
-        sleep(2);
+        sleep(20);
         //verifyEquals(dashBoardPO.getUserName(), username);
         log.info(getCurrentUrl(driver));
     }
