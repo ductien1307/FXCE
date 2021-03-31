@@ -10,6 +10,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -84,6 +85,14 @@ public class AbstractTest extends AbstractPage {
             } else {
                 driver = new FirefoxDriver();
             }
+        }else if (browser.equals("opera")) {
+            WebDriverManager.operadriver().setup();
+            if (grid == 1) {
+                cap = DesiredCapabilities.opera();
+                driver = new RemoteWebDriver(new URL(Domains.HUB), cap);
+            } else {
+                driver = new OperaDriver();
+            }
         } else if (isUnix()) {
             System.out.println("This is Unix or Linux");
         } else if (isSolaris()) {
@@ -142,6 +151,11 @@ public class AbstractTest extends AbstractPage {
             Domains.ENVIRONMENT = Domains.PROD;
             Domains.HOME = Domains.HOME_PROD;
 
+        }
+        if(isMac()){
+            Domains.HUB = Domains.HUB_LOCAL;
+        }else{
+            Domains.HUB = Domains.HUB_SERVER;
         }
     }
 
