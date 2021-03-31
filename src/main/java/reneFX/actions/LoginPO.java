@@ -3,7 +3,6 @@ package reneFX.actions;
 import reneFX.interfaces.LoginUI;
 import org.openqa.selenium.WebDriver;
 import core.AbstractPage;
-import core.config.Domain;
 
 public class LoginPO extends AbstractPage {
 

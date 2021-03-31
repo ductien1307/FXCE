@@ -1,6 +1,6 @@
 package reneFX.actions;
 
-import core.config.Domain;
+import core.config.Domains;
 import data.FunctionName;
 import reneFX.interfaces.DashBoardUI;
 import org.openqa.selenium.WebDriver;
@@ -19,10 +19,10 @@ public class DashBoardPO extends AbstractPage {
     }
 
     public void gotoLoginPage() {
-        openAnyUrl(driver, Domain.HOME + FunctionName.LOGIN);
+        openAnyUrl(driver, Domains.HOME + FunctionName.LOGIN);
     }
 
     public void gotoSettingPage() {
-        openAnyUrl(driver, Domain.HOME + FunctionName.SETTING);
+        openAnyUrl(driver, Domains.HOME + FunctionName.SETTING);
     }
 }

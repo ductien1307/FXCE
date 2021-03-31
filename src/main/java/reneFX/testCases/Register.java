@@ -1,7 +1,7 @@
 package reneFX.testCases;
 
 import core.AbstractTest;
-import core.config.Domain;
+import core.config.Domains;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -23,7 +23,7 @@ public class Register extends AbstractTest {
         registerPO = new RegisterPO(driver);
         dashBoardPO = new DashBoardPO(driver);
         yopMailPO = new YopMailPO(driver);
-        GeneFX.USERNAME = "auto." + Domain.ENVIRONMENT + "." + getEmailRandom();
+        GeneFX.USERNAME = "auto." + Domains.ENVIRONMENT + "." + getEmailRandom();
         GeneFX.PASSWORD = "Auto@123";
     }
 

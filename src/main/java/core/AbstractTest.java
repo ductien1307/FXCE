@@ -1,7 +1,7 @@
 package core;
 
-import core.config.Domain;
-import core.config.Path;
+import core.config.Domains;
+import core.config.Paths;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -72,7 +72,7 @@ public class AbstractTest extends AbstractPage {
             }
             if (grid == 1) {
                 cap = DesiredCapabilities.chrome();
-                driver = new RemoteWebDriver(new URL(Domain.HUB), cap);
+                driver = new RemoteWebDriver(new URL(Domains.HUB), cap);
             } else {
                 driver = new ChromeDriver(optionsChrome);
             }
@@ -80,7 +80,7 @@ public class AbstractTest extends AbstractPage {
             WebDriverManager.firefoxdriver().setup();
             if (grid == 1) {
                 cap = DesiredCapabilities.firefox();
-                driver = new RemoteWebDriver(new URL(Domain.HUB), cap);
+                driver = new RemoteWebDriver(new URL(Domains.HUB), cap);
             } else {
                 driver = new FirefoxDriver();
             }
@@ -95,13 +95,13 @@ public class AbstractTest extends AbstractPage {
 
     protected void setPathYourOS() {
         if (isWindows()) {
-            Path.PATH_MEDIA = Path.PATH_SYSTEM + Path.PATH_MEDIA_WINDOWS;
-            Path.PATH_SCREENSHOT = Path.PATH_SYSTEM + Path.PATH_SCREENSHOT_WINDOWS;
-            Path.PATH_DOWNLOAD = Path.PATH_SYSTEM + Path.PATH_DOWNLOAD_WINDOWS;
+            Paths.PATH_MEDIA = Paths.PATH_SYSTEM + Paths.PATH_MEDIA_WINDOWS;
+            Paths.PATH_SCREENSHOT = Paths.PATH_SYSTEM + Paths.PATH_SCREENSHOT_WINDOWS;
+            Paths.PATH_DOWNLOAD = Paths.PATH_SYSTEM + Paths.PATH_DOWNLOAD_WINDOWS;
         } else if (isMac()) {
-            Path.PATH_MEDIA = Path.PATH_SYSTEM + Path.PATH_MEDIA_MAC;
-            Path.PATH_SCREENSHOT = Path.PATH_SYSTEM + Path.PATH_SCREENSHOT_MAC;
-            Path.PATH_DOWNLOAD = Path.PATH_SYSTEM + Path.PATH_DOWNLOAD_MAC;
+            Paths.PATH_MEDIA = Paths.PATH_SYSTEM + Paths.PATH_MEDIA_MAC;
+            Paths.PATH_SCREENSHOT = Paths.PATH_SYSTEM + Paths.PATH_SCREENSHOT_MAC;
+            Paths.PATH_DOWNLOAD = Paths.PATH_SYSTEM + Paths.PATH_DOWNLOAD_MAC;
         } else {
             System.out.println("Your OS is " + osName + ", sorry this framework not support!!");
         }
@@ -130,17 +130,17 @@ public class AbstractTest extends AbstractPage {
     }
 
     protected void setDomain(String environment) {
-        if (environment.equals(Domain.STG)) {
-            Domain.ENVIRONMENT = Domain.STG;
-            Domain.HOME = Domain.HOME_STG;
+        if (environment.equals(Domains.STG)) {
+            Domains.ENVIRONMENT = Domains.STG;
+            Domains.HOME = Domains.HOME_STG;
 
-        } else if (environment.equals(Domain.DEV)) {
-            Domain.ENVIRONMENT = Domain.DEV;
-            Domain.HOME = Domain.HOME_DEV;
+        } else if (environment.equals(Domains.DEV)) {
+            Domains.ENVIRONMENT = Domains.DEV;
+            Domains.HOME = Domains.HOME_DEV;
 
-        } else if (environment.equals(Domain.PROD)) {
-            Domain.ENVIRONMENT = Domain.PROD;
-            Domain.HOME = Domain.HOME_PROD;
+        } else if (environment.equals(Domains.PROD)) {
+            Domains.ENVIRONMENT = Domains.PROD;
+            Domains.HOME = Domains.HOME_PROD;
 
         }
     }
@@ -269,7 +269,7 @@ public class AbstractTest extends AbstractPage {
 
     protected void uploadMediaByRobot(String fileName) {
         //File Need to be imported
-        File file = new File(Path.PATH_SYSTEM + "/src/main/resources/media/" + fileName);
+        File file = new File(Paths.PATH_SYSTEM + "/src/main/resources/media/" + fileName);
         StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
         //Copy to clipboard
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
@@ -372,7 +372,7 @@ public class AbstractTest extends AbstractPage {
         try {
             TakesScreenshot ts = (TakesScreenshot) driver;
             File source = ts.getScreenshotAs(OutputType.FILE);
-            String dest = Path.PATH_SCREENSHOT + screenshotName + ".png";
+            String dest = Paths.PATH_SCREENSHOT + screenshotName + ".png";
             File destination = new File(dest);
             FileUtils.copyFile(source, destination);
         } catch (Throwable e) {

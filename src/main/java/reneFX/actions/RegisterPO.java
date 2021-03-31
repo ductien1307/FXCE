@@ -1,7 +1,7 @@
 package reneFX.actions;
 
 import core.AbstractPage;
-import core.config.Domain;
+import core.config.Domains;
 import data.FunctionName;
 import org.openqa.selenium.WebDriver;
 import reneFX.interfaces.RegisterUI;
@@ -15,7 +15,7 @@ public class RegisterPO extends AbstractPage {
     }
 
     public void gotoRegisterPage() {
-        openAnyUrl(driver, Domain.HOME + FunctionName.REGISTER);
+        openAnyUrl(driver, Domains.HOME + FunctionName.REGISTER);
     }
 
     public void inputUsername(String username) {

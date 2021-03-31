@@ -1,6 +1,6 @@
 package core.config;
 
-public class Path {
+public class Paths {
     public static final String PATH_SYSTEM = System.getProperty("user.dir");
     public static final String PATH_MEDIA_WINDOWS = "\\src\\main\\resources\\media\\";
     public static final String PATH_MEDIA_MAC = "/src/main/resources/media/";

@@ -1,7 +1,7 @@
 package core;
 
-import core.config.Path;
-import core.config.TimeOut;
+import core.config.Paths;
+import core.config.TimeOuts;
 import okio.Timeout;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -81,7 +81,7 @@ public class AbstractPage {
         boolean flag = true;
         try {
             By by = By.xpath(locator);
-            WebDriverWait wait = new WebDriverWait(driver, TimeOut.TIMEOUT_SECOND);
+            WebDriverWait wait = new WebDriverWait(driver, TimeOuts.TIMEOUT_SECOND);
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         } catch (Exception e) {
             flag = false;
@@ -103,7 +103,7 @@ public class AbstractPage {
 
     protected void waitForElementInvisibility(WebDriver driver, String locator) {
         By by = By.xpath(locator);
-        WebDriverWait wait = new WebDriverWait(driver, TimeOut.TIMEOUT_SECOND);
+        WebDriverWait wait = new WebDriverWait(driver, TimeOuts.TIMEOUT_SECOND);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
@@ -115,7 +115,7 @@ public class AbstractPage {
 
     protected void waitForElementPresence(WebDriver driver, String locator) {
         By by = By.xpath(locator);
-        WebDriverWait wait = new WebDriverWait(driver, TimeOut.TIMEOUT_SECOND);
+        WebDriverWait wait = new WebDriverWait(driver, TimeOuts.TIMEOUT_SECOND);
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
@@ -149,7 +149,7 @@ public class AbstractPage {
         Thread.sleep(1000);
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         driver.switchTo().frame(name);
-        driver.manage().timeouts().implicitlyWait(TimeOut.TIMEOUT_SECOND, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(TimeOuts.TIMEOUT_SECOND, TimeUnit.SECONDS);
     }
 
     protected void switchToModal(WebDriver driver) {
@@ -186,7 +186,7 @@ public class AbstractPage {
 
     protected void waitForElementClickable(WebDriver driver, String locator) {
         By by = By.xpath(locator);
-        WebDriverWait wait = new WebDriverWait(driver, TimeOut.TIMEOUT_SECOND);
+        WebDriverWait wait = new WebDriverWait(driver, TimeOuts.TIMEOUT_SECOND);
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
@@ -222,7 +222,7 @@ public class AbstractPage {
     }
 
     protected void waitForAlertIsPresent(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, TimeOut.TIMEOUT_SECOND);
+        WebDriverWait wait = new WebDriverWait(driver, TimeOuts.TIMEOUT_SECOND);
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
     }
 
@@ -349,7 +349,7 @@ public class AbstractPage {
     }
 
     protected int getSizeElement(WebDriver driver, String locator) {
-        waitForElementVisible(driver, locator, TimeOut.DISPLAY_TIMEOUT);
+        waitForElementVisible(driver, locator, TimeOuts.DISPLAY_TIMEOUT);
         List<WebElement> elements = driver.findElements(By.xpath(locator));
         return elements.size();
     }
@@ -401,7 +401,7 @@ public class AbstractPage {
     protected void uploadMedia(WebDriver driver, String locator, String fileName) throws InterruptedException {
         printInfo(fileName);
         Thread.sleep(1000);
-        String filePath = Path.PATH_SYSTEM + "/src/main/resources/media/" + fileName;
+        String filePath = Paths.PATH_SYSTEM + "/src/main/resources/media/" + fileName;
         WebElement element = driver.findElement(By.xpath(locator));
         element.sendKeys(filePath);
     }
@@ -493,7 +493,7 @@ public class AbstractPage {
         try {
             printInfo(locator);
             waitForElementVisible(driver, locator);
-            waitForElementClickable(driver, locator, TimeOut.DISPLAY_TIMEOUT);
+            waitForElementClickable(driver, locator, TimeOuts.DISPLAY_TIMEOUT);
             WebElement element = driver.findElement(By.xpath(locator));
             element.click();
             return true;
