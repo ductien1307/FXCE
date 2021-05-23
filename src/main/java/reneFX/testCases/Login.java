@@ -32,14 +32,11 @@ public class Login extends AbstractTest {
     @Test
     public void existAccount(@Optional String username, @Optional String password) throws InterruptedException {
         dashBoardPO.gotoLoginPage();
-        sleep(10);
         loginPO.inputUserName(username);
-        sleep(10);
         loginPO.inputPassWord(password);
-        sleep(10);
         loginPO.clickLogin();
-        sleep(10);
         log.info(getCurrentUrl(driver));
+        log.info(dashBoardPO.getUserName());
         verifyEquals(dashBoardPO.getUserName(), username);
     }
 

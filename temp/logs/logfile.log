@@ -52,3 +52,22 @@ INFO  | 2021-03-31 13:30:11 | [TestNG] core.AbstractPage (AbstractPage.java:24) 
 INFO  | 2021-03-31 13:30:11 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputPassWord : Auto@123
 INFO  | 2021-03-31 13:30:12 | [TestNG] core.AbstractPage (AbstractPage.java:24) - clickLogin : //button[contains(@class,'btn-left')]
 INFO  | 2021-03-31 13:30:14 | [TestNG] core.AbstractPage (AbstractPage.java:44) - verifyEquals : tienphp+dev@gmail.com
+INFO  | 2021-04-01 11:37:56 | [TestNG] core.AbstractPage (AbstractPage.java:24) - gotoLoginPage : http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/login
+INFO  | 2021-04-01 11:38:06 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputUserName : tienphp+dev@gmail.com
+INFO  | 2021-04-01 11:38:17 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputPassWord : Auto@123
+INFO  | 2021-04-01 11:38:27 | [TestNG] core.AbstractPage (AbstractPage.java:24) - clickLogin : //button[contains(@class,'btn-left')]
+INFO  | 2021-04-01 11:38:37 | [TestNG] testCases.Login (Login.java:42) - http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/mt5-account
+INFO  | 2021-04-01 11:38:37 | [TestNG] core.AbstractPage (AbstractPage.java:44) - verifyEquals : tienphp+dev@gmail.com
+INFO  | 2021-04-01 11:38:58 | [TestNG] core.AbstractPage (AbstractPage.java:24) - gotoLoginPage : http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/login
+INFO  | 2021-04-01 11:38:58 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputUserName : tienphp+dev@gmail.com
+INFO  | 2021-04-01 11:39:04 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputPassWord : Auto@123
+INFO  | 2021-04-01 11:39:04 | [TestNG] core.AbstractPage (AbstractPage.java:24) - clickLogin : //button[contains(@class,'btn-left')]
+INFO  | 2021-04-01 11:39:04 | [TestNG] testCases.Login (Login.java:38) - http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/login
+INFO  | 2021-04-01 11:39:05 | [TestNG] core.AbstractPage (AbstractPage.java:44) - verifyEquals : tienphp+dev@gmail.com
+INFO  | 2021-04-01 11:41:28 | [TestNG] core.AbstractPage (AbstractPage.java:24) - gotoLoginPage : http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/login
+INFO  | 2021-04-01 11:41:28 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputUserName : tienphp+dev@gmail.com
+INFO  | 2021-04-01 11:41:33 | [TestNG] core.AbstractPage (AbstractPage.java:24) - inputPassWord : Auto@123
+INFO  | 2021-04-01 11:41:33 | [TestNG] core.AbstractPage (AbstractPage.java:24) - clickLogin : //button[contains(@class,'btn-left')]
+INFO  | 2021-04-01 11:41:33 | [TestNG] testCases.Login (Login.java:38) - http://fxcewl-fe-genefx.ipc-fe.stg.s3-website-ap-southeast-1.amazonaws.com/login
+INFO  | 2021-04-01 11:41:34 | [TestNG] testCases.Login (Login.java:39) - tienphp+dev@gmail.com
+INFO  | 2021-04-01 11:41:34 | [TestNG] core.AbstractPage (AbstractPage.java:44) - verifyEquals : tienphp+dev@gmail.com
